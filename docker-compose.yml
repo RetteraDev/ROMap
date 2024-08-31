@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  # client:
+  #   stdin_open: true
+  #   build:
+  #     context: client
+  #   volumes:
+  #     - ./client:/client
+  #   ports:
+  #     - "3000:3000"
+  nginx:
+    image: nginx
+    volumes:
+      - ./static:/static
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
+    # depends_on:
+    #   - client
